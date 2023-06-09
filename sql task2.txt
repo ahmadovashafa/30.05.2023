@@ -1,0 +1,57 @@
+- Task 30.05 #5
+
+--Group 1 - Mixed Joins:
+
+--Task 1:
+
+
+SELECT e.employee_id, e.first_name, d.department_name, j.job_title, c.country_name
+FROM employees e
+LEFT JOIN departments d ON e.department_id = d.department_id
+INNER JOIN locations   l ON l.location_id = d.location_id
+INNER JOIN countries c ON c.country_id = l.country_id
+INNER JOIN jobs j ON j.job_id = e.job_id;
+ 
+/--task 2:
+
+
+SELECT e.employee_id, e.first_name, d.department_name, j.job_title, c.country_name, jh.start_date, jh.end_date
+FROM employees e
+LEFT JOIN departments d ON e.department_id = d.department_id
+LEFT JOIN jobs j ON e.job_id = j.job_id
+LEFT JOIN locations   l ON d.location_id = l.location_id
+LEFT JOIN countries c ON l.country_id = c.country_id
+LEFT JOIN job_history jh ON e.employee_id = jh.employee_id;
+
+  --task3
+  SELECT e.employee_id, e.first_name,  d.department_name, j.job_title, c.country_name
+FROM
+    employees   e
+    RIGHT JOIN  departments d ON d.department_id = e.department_id
+    RIGHT JOIN locations   l ON l.location_id = d.location_id
+    RIGHT JOIN countries   c on c.country_id = l.country_id
+    RIGHT JOIN jobs        j on j.job_id = e.job_id;
+    
+    
+
+    --task4 
+
+SELECT e.employee_id, e.first_name, d.department_name, j.job_title, c.country_name
+FROM employees e
+LEFT JOIN departments d ON e.department_id = d.department_id
+LEFT JOIN locations  l ON l.location_id = d.location_id
+LEFT JOIN countries c ON c.country_id = l.country_id
+LEFT JOIN jobs j ON e.job_id = j.job_title;
+ 
+    
+    --task 5
+  select e.employee_id, e.first_name,  d.department_name, j.job_title, c.country_name
+from
+    employees   e
+    INNER JOIN   departments d ON e.department_id = d.department_id
+    INNER JOIN jobs        j ON e.job_id = j.job_id
+    RIGHT JOIN locations   l ON d.location_id = l.location_id
+    RIGHT JOIN countries   c ON l.country_id = c.country_id ;
+    
+    
+    
